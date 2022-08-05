@@ -203,3 +203,38 @@ void Library::PrintListContainer()
 	cout << endl << "Total size of list is: " << l2.size();
 }
 
+void Task::PrintTask1()
+{
+
+	struct info
+	{
+		string name;
+		int age;
+		float salary;
+	};
+
+	class List
+	{
+	
+
+	public:
+		list<info*> obj;
+
+		List()
+		{
+
+		}
+		List(List& obj1)
+		{
+			info = new info;
+			info* = 
+			obj1.
+		}
+		~List()
+		{
+
+		}
+
+	};
+	
+}

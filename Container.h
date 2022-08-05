@@ -17,4 +17,11 @@ namespace Library
 	void PrintTupleClass();
 
 	void PrintListContainer();
+
+	
+}
+
+namespace Task
+{  
+	void PrintTask1();
 }
