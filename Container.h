@@ -1,9 +1,11 @@
 #pragma once
 #include <iostream>
+#include <string>
 #include <array>
 #include <vector>
 #include <tuple>
 #include <list>
+
 
 using namespace std;
 namespace Library
@@ -22,6 +24,7 @@ namespace Library
 }
 
 namespace Task
-{  
+{
+	
 	void PrintTask1();
 }

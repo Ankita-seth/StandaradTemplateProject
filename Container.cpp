@@ -203,38 +203,83 @@ void Library::PrintListContainer()
 	cout << endl << "Total size of list is: " << l2.size();
 }
 
+
+
 void Task::PrintTask1()
 {
-
 	struct info
 	{
 		string name;
-		int age;
-		float salary;
+		int age = 0;
+		float salary = 0;
 	};
+
+	/*void put_value(string nm,int ag,float sal)
+	{
+		nm = name;
+		ag = age;
+		sal = salary;
+	}*/
 
 	class List
 	{
-	
-
 	public:
-		list<info*> obj;
-
 		List()
 		{
 
 		}
-		List(List& obj1)
+
+		list<info*> ourlist;
+		list<info*>::iterator it = ourlist.begin();
+		/*while(it!= ourlist.end())
 		{
-			info = new info;
-			info* = 
-			obj1.
+			it++;
+		}*/
+
+		void Add(info* add)
+		{
+			ourlist.push_back(add);
+
+		}
+		void Rev(info* rev)
+		{
+			ourlist.reverse();
+		}
+		void Clear()
+		{
+			ourlist.clear();
+		}
+		void Size()
+		{
+			//ourlist.size();
+			cout << "Size is: " << ourlist.size() << endl;
+		}
+
+		void Sort()
+		{
+			ourlist.sort();
+		}
+		List(const List& obj)
+		{
+			obj.ourlist;
 		}
 		~List()
 		{
 
 		}
-
 	};
+	info* tempinfo = new info();
+	void (info ::* tempinfo) (string, int, float) = &info::put_value;
+	
+	/*tempinfo->name;
+	tempinfo->age;
+	tempinfo->salary;*/
+
+	List li;
+	li.Size();
+	li.Add(tempinfo);
+	li.Clear();
+	List li1 = li;
+	li1.Size();
 	
 }

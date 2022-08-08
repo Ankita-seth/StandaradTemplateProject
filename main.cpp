@@ -7,5 +7,7 @@ int main()
 	//Library::PrintVectorContainer();
 	//Library::PrintPairClass();
 	//Library::PrintTupleClass();
-	Library::PrintListContainer();
+	//Library::PrintListContainer();
+	Task::PrintTask1();
+	
 }
