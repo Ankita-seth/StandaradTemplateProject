@@ -3,11 +3,13 @@
 
 int main()
 {
+
 	//Library::PrintArrayContainer();
 	//Library::PrintVectorContainer();
 	//Library::PrintPairClass();
 	//Library::PrintTupleClass();
 	//Library::PrintListContainer();
-	Task::PrintTask1();
+	//Task::PrintTask1();
+	Task1::PrintVectorTask();
 	
 }

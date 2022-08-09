@@ -203,83 +203,217 @@ void Library::PrintListContainer()
 	cout << endl << "Total size of list is: " << l2.size();
 }
 
-
-
-void Task::PrintTask1()
+ void Task::List::Add(info* add, bool back)
 {
-	struct info
-	{
-		string name;
-		int age = 0;
-		float salary = 0;
-	};
-
-	/*void put_value(string nm,int ag,float sal)
-	{
-		nm = name;
-		ag = age;
-		sal = salary;
-	}*/
-
-	class List
-	{
-	public:
-		List()
-		{
-
-		}
-
-		list<info*> ourlist;
-		list<info*>::iterator it = ourlist.begin();
-		/*while(it!= ourlist.end())
-		{
-			it++;
-		}*/
-
-		void Add(info* add)
-		{
-			ourlist.push_back(add);
-
-		}
-		void Rev(info* rev)
-		{
-			ourlist.reverse();
-		}
-		void Clear()
-		{
-			ourlist.clear();
-		}
-		void Size()
-		{
-			//ourlist.size();
-			cout << "Size is: " << ourlist.size() << endl;
-		}
-
-		void Sort()
-		{
-			ourlist.sort();
-		}
-		List(const List& obj)
-		{
-			obj.ourlist;
-		}
-		~List()
-		{
-
-		}
-	};
-	info* tempinfo = new info();
-	void (info ::* tempinfo) (string, int, float) = &info::put_value;
-	
-	/*tempinfo->name;
-	tempinfo->age;
-	tempinfo->salary;*/
-
-	List li;
-	li.Size();
-	li.Add(tempinfo);
-	li.Clear();
-	List li1 = li;
-	li1.Size();
-	
+	if (back)
+		ourlist.push_back(add);
+	else
+		ourlist.push_front(add);
 }
+
+void Task::List::Pop(bool back)
+{
+	if (back)
+		ourlist.pop_back();
+	else
+		ourlist.pop_front();
+}
+//int info* Task::List::Front()
+//{
+//	return ourlist.front();
+//}
+
+ void Task::List::Rev()
+{
+	ourlist.reverse();
+}
+
+ void Task::List::Clear()
+{
+	for (list<info*>::iterator iter = ourlist.begin(); iter != ourlist.end(); iter++)
+	{
+		delete (*iter);
+		*iter = NULL;
+	}
+	ourlist.clear();
+}
+
+ int Task::List::Size()
+{
+
+	return ourlist.size();
+}
+
+ void Task::List::Display()
+{
+	for (list<info*>::iterator iter = ourlist.begin(); iter != ourlist.end(); iter++)
+	{
+		cout << "Name: " << (*iter)->name << " ";
+		cout << "Age: " << (*iter)->age << " ";
+		cout << "Salary: " << (*iter)-> salary << " ";
+		cout << endl;
+	}
+}
+
+ void Task::List::Sort()
+{
+	ourlist.sort();
+}
+
+ void Task::PrintTask1()
+ {
+
+	 List li;
+	 //int listSize = li.Size();
+	 cout << "Size of the list is: " << li.Size()<<endl;
+
+	 
+	
+	 info* tempinfo = new info();
+	 tempinfo->age = 20;
+	 tempinfo->name = "Nix";
+	 tempinfo->salary = 1245.8965;
+	 li.Add(tempinfo, true);
+
+	 tempinfo = new info();
+	 tempinfo->age = 20;
+	 tempinfo->name = "Jim";
+	 tempinfo->salary = 2324.564;
+	
+	 li.Add(tempinfo, true);
+	 
+	 li.Display();
+	 
+	 li.Rev();
+	 cout << endl<<"After Reverse, list values are: "<<endl;
+	 li.Display();
+	 cout << "Size of the list is: " << li.Size()<<endl;
+	 li.Pop(true);
+	 cout << "After Pop,Size of the list is: " << li.Size() << endl;
+	 li.Clear();
+	 cout << "After Clear Function,Size of the list is: " << li.Size() << endl;
+	 li.Display();
+	 
+	 //Copy Constructor :
+	 List li1 = li;
+	 cout <<endl<< "Copy Constructor: "<<endl;
+	
+	 tempinfo = new info();
+	 tempinfo->age = 21;
+	 tempinfo->name = "Kate";
+	 tempinfo->salary = 45745.635;
+
+	 cout << "Size of the list is: " << li1.Size() << endl;
+	 li1.Add(tempinfo, true);
+	 li1.Display();
+	 cout << "After Push,Size of the list is: " << li1.Size() << endl;
+	 li1.Pop(false);
+	 cout << "After Pop,Size of the list is: " << li.Size() << endl;
+ }
+
+ void Task1::Vector::Push(EmpInfo* add)
+ {
+	 myvector.push_back(add);
+ }
+
+ void Task1::Vector::Pop()
+ {
+	 myvector.pop_back();
+ }
+
+ int Task1::Vector::Size()
+ {
+	 return myvector.size();
+ }
+
+ void Task1::Vector::At()
+ {
+	 for (int i = 0; i < Size(); i++)
+	 { 
+		 cout << myvector.at(i)<<endl;
+	 }
+	
+ }
+
+ void Task1::Vector::Clear()
+ {
+	 myvector.clear();
+ }
+
+ void Task1::Vector::Display()
+ {
+	 for (vector<EmpInfo*>::iterator it = myvector.begin(); it != myvector.end(); it++)
+	 {
+		 cout <<"Employee Id: " << (*it)->emp_id << endl;
+		 cout << "Employee Name: " << (*it)->emp_name << endl;
+		 cout << "Employee Address: " << (*it)->emp_add << endl;
+	 }
+ }
+
+ int Task1::Vector::Capacity()
+ {
+	 return myvector.capacity();
+ }
+
+ void Task1::PrintVectorTask()
+ {
+	 Vector vec;
+	 EmpInfo* tempinfo = new EmpInfo();
+
+	 tempinfo->emp_id = 1;
+	 tempinfo->emp_name = "Jenna";
+	 tempinfo->emp_add = "London";
+	 vec.Push(tempinfo);
+	
+	 tempinfo = new EmpInfo();
+	 tempinfo->emp_id = 2;
+	 tempinfo->emp_name = "Samuel";
+	 tempinfo->emp_add = "Turkey";
+	 vec.Push(tempinfo);
+
+	 tempinfo = new EmpInfo();
+	 tempinfo->emp_id = 3;
+	 tempinfo->emp_name = "Kizzi";
+	 tempinfo->emp_add = "Turkey";
+	 vec.Push(tempinfo);
+
+	 tempinfo = new EmpInfo();
+	 tempinfo->emp_id = 4;
+	 tempinfo->emp_name = "Rango";
+	 tempinfo->emp_add = "Desert";
+	 vec.Push(tempinfo);
+
+	 tempinfo = new EmpInfo();
+	 tempinfo->emp_id = 5;
+	 tempinfo->emp_name = "John";
+	 tempinfo->emp_add = "London";
+	 vec.Push(tempinfo);
+
+	 tempinfo = new EmpInfo();
+	 tempinfo->emp_id = 6;
+	 tempinfo->emp_name = "Cristina";
+	 tempinfo->emp_add = "South Africa";
+	 vec.Push(tempinfo);
+
+	 tempinfo = new EmpInfo();
+	 tempinfo->emp_id = 7;
+	 tempinfo->emp_name = "Pilip";
+	 tempinfo->emp_add = "Austria";
+	 vec.Push(tempinfo);
+
+	 cout << "Size of Vector is: " << vec.Size() << endl<<endl;
+	 cout << "Capacity of Vector is: " << vec.Capacity()<<endl;
+	 vec.Display();
+	 vec.At();
+	 cout << endl << "After push,Size of Vector is: " << vec.Size()<<endl;
+	 cout << "After push,Capacity of Vector is: " << vec.Capacity()<<endl;
+	 
+	 vec.Pop();
+	 vec.Pop();
+	 cout << "After pop,Size of Vector is: " << vec.Size() << endl;
+	 cout << "After pop,Capacity of Vector is: " << vec.Capacity()<<endl;
+	 vec.Clear();
+	 vec.Display();
+	 cout << "After clear,Size of Vector is: " << vec.Size() << endl;
+	 cout << "After clear,Capacity of Vector is: " << vec.Capacity();
+ }
