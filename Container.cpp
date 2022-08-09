@@ -404,6 +404,7 @@ void Task::List::Pop(bool back)
 	 cout << "Size of Vector is: " << vec.Size() << endl<<endl;
 	 cout << "Capacity of Vector is: " << vec.Capacity()<<endl;
 	 vec.Display();
+	// cout << "Value at index 3 is: "<<endl;
 	 vec.At();
 	 cout << endl << "After push,Size of Vector is: " << vec.Size()<<endl;
 	 cout << "After push,Capacity of Vector is: " << vec.Capacity()<<endl;
