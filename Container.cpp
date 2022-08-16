@@ -203,6 +203,155 @@ void Library::PrintListContainer()
 	cout << endl << "Total size of list is: " << l2.size();
 }
 
+void Library::PrintDeque()
+{
+	deque<int> d;
+	d.push_front(1);
+	d.push_back(2);
+	for (int i : d)
+	{
+		cout << i << endl;
+	}
+	cout << "Size is: " << d.size() << endl;
+	d.pop_front();
+	cout << "Size is: " << d.size() <<endl;
+	d.push_back(12);
+	d.push_front(21);
+	d.erase(d.begin(), d.begin() + 2);
+	cout << "Size is: " << d.size() <<endl;
+	cout<<"Element at postion 0 is: " << d.at(0)<<endl;
+	cout<<"Deque is empty or not? " << d.empty();
+
+}
+
+void Library::PrintStack()
+{
+	stack<string>s;
+	s.push("Ankita");
+	s.push("seth");
+	cout << "Elements at top is: " << s.top() << endl;
+	s.pop();
+	cout << "Elements at top is: " << s.top() << endl;
+	cout << "Size of string is: " << s.size()<<endl;
+	cout<<"String is empty or not?: "<< s.empty();
+}
+
+void Library::PrintQueue()
+{
+	queue <string> q;
+	q.push("Abdul");
+	q.push("Kalam");
+	q.push("Aazad");
+	cout << "Size of queue is: " << q.size() <<endl;
+	cout<<"Front element of queue is: " << q.front() << endl;
+	q.pop();
+	cout << "Size of queue is: " << q.size() << endl;
+	cout << "Queue is empty or not?: " << q.empty() << endl;
+}
+
+void Library::PrintPriorityQueue()
+{
+	priority_queue <int> maxi;
+	priority_queue <int, vector<int>, greater<int> > mini;
+	maxi.push(2);
+	maxi.push(1);
+	maxi.push(5);
+	maxi.push(3);
+	cout << "Size is: " << maxi.size() << endl;
+	int n = maxi.size();
+	for (int i = 0;i< n; i++)
+	{
+		cout << maxi.top() << " ";
+		maxi.pop();	
+	}
+	
+	mini.push(3);
+	mini.push(5);
+	mini.push(7);
+	mini.push(1);
+	mini.push(9);
+	cout << "Size is : " << mini.size()<<endl;
+	int m = mini.size();
+	for (int i = 0; i < m; i++)
+	{
+		cout << mini.top() << " ";
+		mini.pop();
+	}
+
+	cout << "Empty or not? : " << mini.empty();
+}
+
+void Library::PrintSet()
+{
+	set <int> s;
+	s.insert(2);
+	s.insert(2);
+	s.insert(1);
+	s.insert(5);
+	s.insert(6);
+	s.insert(6);
+	s.insert(6);
+	s.insert(0);
+	s.insert(4);
+	s.insert(3);
+	for (int i : s)
+	{
+		cout << i << endl;
+	}
+	set <int>::iterator it = s.begin();
+	it++;
+	s.erase(it);
+	cout << "After erase: " << endl;
+	for (int i : s)
+	{
+		cout << i << endl;
+	}
+	cout << "74 is present or not? : " << s.count(74) << endl;
+	cout << "Size of set is: " << s.size() << endl;
+	cout << "After Find Function: "<<" ";
+	set <int>::iterator iter = s.find(5);
+	for (auto it = iter; it != s.end(); it++)
+	{
+		cout << *it <<" ";
+	}
+
+	cout<<endl << "Empty or not?: " << s.empty();
+}
+
+void Library::PrintMap()
+{
+	map<int, string>m;
+	
+	m[3] = "Kalam";
+	m[2] = "Aazad";
+	m[12] = "Great Man";
+	m[1] = "Abdul";
+
+	//other way of insertion:
+
+	m.insert({ 6,"India" });
+	cout << "Before Erase: " << endl;
+	for (auto i : m)
+	{
+		cout << i.first << " " << i.second << endl;
+	}
+
+	cout << "Is 14 available?: " << m.count(14) <<endl;
+	cout << "After Erase: " << endl;
+	m.erase(6);
+	for (auto i : m)
+	{
+		cout << i.first << " " << i.second << endl;
+	}
+
+	map <int, string>::iterator it = m.find(3);
+	for (auto i = it; i != m.end(); i++)
+	{
+		cout << (*i).first <<endl;
+	}
+	cout << "Empty or not?: " << m.empty();
+}
+
  void Task::List::Add(info* add, bool back)
 {
 	if (back)
@@ -328,12 +477,14 @@ void Task::List::Pop(bool back)
 
  void Task1::Vector::At()
  {
-	 for (int i = 0; i < Size(); i++)
-	 { 
+	 int n = Size();
+	 for (int i = 0; i < n; i++)
+	 {
 		 cout << myvector.at(i)<<endl;
 	 }
-	
+
  }
+
 
  void Task1::Vector::Clear()
  {

@@ -5,6 +5,11 @@
 #include <vector>
 #include <tuple>
 #include <list>
+#include <deque>
+#include<stack>
+#include <queue>
+#include <set>
+#include <map>
 
 
 using namespace std;
@@ -19,6 +24,18 @@ namespace Library
 	void PrintTupleClass();
 
 	void PrintListContainer();
+
+	void PrintDeque();
+
+	void PrintStack();
+
+	void PrintQueue();
+
+	void PrintPriorityQueue();
+
+	void PrintSet();
+
+	void PrintMap();
 
 	
 }
