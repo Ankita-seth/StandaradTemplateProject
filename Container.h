@@ -37,7 +37,7 @@ namespace Library
 
 	void PrintMap();
 
-	
+	void PrintMapQues(string str);
 }
 
 namespace Task

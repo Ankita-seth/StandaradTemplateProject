@@ -352,6 +352,41 @@ void Library::PrintMap()
 	cout << "Empty or not?: " << m.empty();
 }
 
+void Library::PrintMapQues(string str)
+{
+	{
+		map<string, int> freq;
+		string word = "";
+		for (int i = 0; i < str.size(); i++) {
+			if (str[i] == ' ')
+			{
+				if (freq.find(word) == freq.end())
+				{
+					freq.insert(make_pair(word, 1));
+					word = "";
+				}
+				else
+				{
+					freq[word]++;
+					word = "";
+				}
+			}
+			else
+				word += str[i];
+		}
+		/*if (freq.find(word) == freq.end())
+			freq.insert(make_pair(word, 1));
+
+		else
+			freq[word]++;*/
+
+		for (auto& iter : freq)
+		{
+			cout << iter.first << " : " << iter.second << endl;
+		}
+	}
+}
+
  void Task::List::Add(info* add, bool back)
 {
 	if (back)
