@@ -4,6 +4,8 @@ void Library::PrintArrayContainer()
 {
 	array<int, 5>data_array1 = {1,12,11,2,7};
 	array<int, 5>data_array2 = { 11,2,0,6,8 };
+
+	//data_array1.assign();
 	//cout << data_array1.at(2) << endl;                             //at() function
 	//cout << data_array1.front() << endl;                           //front() function
 	//cout << data_array1.back() << endl;                            //back() function
